@@ -8,6 +8,9 @@ class Node{
 }
 class DSA132{
     static void Divide(Node head){
+        if(head==null || head.next==null){
+            return;
+        }
         Node l1 = head;
         Node slow = head;
         Node fast = head;
