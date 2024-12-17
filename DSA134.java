@@ -10,11 +10,11 @@ public class DSA134 {
     static Node FindMergeNode(Node head,Node head1){
         Node curr1 = head;
         Node curr2 = head1;
-
         while(curr1!=null){
+            curr2 = head1;
             while(curr2!=null){
                 if(curr1==curr2){
-                    return curr1;
+                    return curr2;
                 }
                 curr2 = curr2.next;
             }
@@ -30,12 +30,14 @@ public class DSA134 {
         head.next.next.next = new Node(4);
 
         Node head1 = new Node(8);
-        head1.next = head.next.next;
-        head1.next.next = head.next.next.next;
+        head1.next = head.next;
 
         Node mergeNode = FindMergeNode(head,head1);
-        System.out.println("The data of the first merged Node: ");
-        System.out.println(mergeNode.data);
+        if (mergeNode != null) {
+            System.out.println("The data of the first merged Node: " + mergeNode.data);
+        } else {
+            System.out.println("No merge point found.");
+        }
 
     }
 }
